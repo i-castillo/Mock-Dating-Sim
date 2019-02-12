@@ -1,0 +1,56 @@
+<head>
+  <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <script type="text/javascript" src="/javascript/questions.js"></script>
+  <script type="text/javascript" src="/javascript/pref.js"></script>
+  <link type="text/css" rel="stylesheet" href="/css/edit.css" />
+
+</head>
+{% extends "base.html" %}
+{% block content %}
+<div class="edit-body">
+<div class="edit-intro">
+<span> You are editing your profile. On this page, you can add photos, add a description, and change your settings. </span>
+<span> You can also answer questions to be more compatible with other users.</span>
+</div>
+
+<div class="form">
+<form enctype="multipart/form-data" method="post">
+  {% if muser.picture %}
+  <img src="/img/?img={{ muser.key().id() }}">
+  {% else %}
+    {% if muser.gender == 'M' %}
+      <img width=250px src="/images/blank-silhouette-medium-420x420.png">
+    {% elif muser.gender == 'F' %}
+      <img width=250px src="/images/blank-silhouette-medium-420x420.png">
+    {% endif %}
+  {% endif %}
+
+  {% if muser.description %}
+  <span>  {{user.description}} </span>
+  {% else %}
+  <span> No Description yet! </span>
+  {% endif %}
+  <label for="image" class="signupleft">Upload Photo:</label>
+    <input type=file name=picture class="signupright" </input><br>
+  <label for="description" class="signupleft">Description:</label>
+    <input type=text name=picture class="signupright" placeholder="Enter description"></input><br>
+    <label for="college" class="signupleft">College:</label>
+
+      <select name="college">
+      <option value="warren">Warren</option>
+      <option value="sixth">Sixth</option>
+      <option value="marshall">Marshall</option>
+      <option value="revelle">Revelle</option>
+      <option value="muir">Muir</option>
+    </select><br>
+
+ <input type=submit>
+</form>
+</div><br>
+
+  <label>Do you wanna update your preferences?</label>
+  <button id="generate"> Generate random preference</button>
+  <div id="preference"></div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<head>
+  <link type="text/css" rel="stylesheet" href="/css/signup.css" />
+</head>
+
+{% extends "base.html" %}
+{% block content %}
+<div class="form">
+<form method=post>
+  <label for="username" class="signupleft">Username:</label>
+    <input type=text name=username class="signupright" placeholder="Enter username"></input>{{error}}<br>
+  <label for="password" class="signupleft">Password:</label>
+    <input type=password name=password class="signupright" placeholder="Enter Password"></input><br>
+
+  <input class="signupright" type=submit></input>
+</form>
+</div>
+ {% endblock %}

@@ -1,0 +1,10 @@
+1. When the user connects to the site, send a request. 
+  This request lets the site know the user is online. 
+
+2. The site sends a response to the user. It lets them know of active users, and
+notifies the them if another user has messaged them. 
+
+3. When a request is satisfied, the user sends another request. 
+
+
+

@@ -1,0 +1,13 @@
+.users{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  color: white;
+}
+
+.user{
+  text-align: center;
+  width: 20%;
+  height: 40%;
+  margin: 10px;
+}

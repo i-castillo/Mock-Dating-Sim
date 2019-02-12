@@ -1,0 +1,7 @@
+{% for i in messages %}
+{% if i.sender == sender %}
+<p class="messagesender">{{i.sender}}:</span> <span>{{ i.message }} </p>
+{% else %}
+<p class="messagereceiver">{{i.sender}}:</span> <span>{{ i.message }} </p>
+{% endif %}
+{% endfor %}

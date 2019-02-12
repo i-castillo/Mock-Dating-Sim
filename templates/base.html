@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link type="text/css" rel="stylesheet" href="/css/base.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <title>ucsddate.com</title>
+</head>
+
+<body>
+  <div class="main-body">
+  <div class="titlebar">
+  <div class="sitetitle">ucsddate.com</div>
+  {% if user %}
+    <div class="signin"> {{user.name}} <a href="/signout">(signout)</a></div>
+  {% else %}
+    <div class="signin"> Already have an account? <a class="signinbtn" href =/signin>SIGN IN</a></div>
+  {% endif %}
+  </div>
+  <div id="content">
+  {% block content %}
+  {% endblock %}
+  </div>
+</div>
+</body>
+
+</html>

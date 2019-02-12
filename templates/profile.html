@@ -1,0 +1,65 @@
+<head>
+  <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <script type="text/javascript" src="/javascript/questions.js"></script>
+  <script type="text/javascript" src="/javascript/pref.js"></script>
+  <script type="text/javascript" src="/javascript/profile.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="/css/user.css" />
+
+</head>
+{% extends "base.html" %}
+{% block content %}
+<div class="user-container">
+<div class="form">
+  <div class="user-box">
+
+  <div class="pictures">
+    <div class="main-picture">
+
+      <input type="file" id="selectedFile" style="display: none;" onchange=previewphoto(this) />
+      <input width=210px id="selectedImage" type="image" src="/images/blank-silhouette-medium-420x420.png" onclick="document.getElementById('selectedFile').click();" />
+      {% if muser.picture %}
+      <img src="/img/?img={{ muser.key().id() }}">
+      {% else %}
+        {% if muser.gender == 'M' %}
+        {% elif muser.gender == 'F' %}
+          <img width=210px src="/images/blank-silhouette-medium-420x420.png">
+        {% endif %}
+      {% endif %}
+    </div>
+  </button>
+  <div class="other-pics">
+    <button class="photo-button"><img width=70px src="/images/blank-silhouette-medium-420x420.png"></button>
+    <button class="photo-button"><img width=70px src="/images/blank-silhouette-medium-420x420.png"></button>
+    <button class="photo-button"><img width=70px src="/images/blank-silhouette-medium-420x420.png"></button>
+
+  </div>
+  </div>
+
+  {% if muser.description %}
+  <span>  {{user.description}} </span>
+  {% else %}
+  <span></span>
+  {% endif %}
+  <label for="image" class="signupleft"></label>
+  <label for="description" class="signupleft">Description:</label>
+    <input type=text name=picture class="signupright" placeholder="Enter description"></input><br>
+    <label for="college" class="signupleft">College:</label>
+
+      <select name="college">
+      <option value="warren">Warren</option>
+      <option value="sixth">Sixth</option>
+      <option value="marshall">Marshall</option>
+      <option value="revelle">Revelle</option>
+      <option value="muir">Muir</option>
+    </select><br>
+
+ </div>
+</div><br>
+
+  <label>Do you wanna update your preferences?</label>
+  <button id="generate"> Generate random preference</button>
+  <div id="preference"></div>
+
+</div>
+{% endblock %}

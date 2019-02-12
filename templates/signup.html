@@ -1,0 +1,48 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link type="text/css" rel="stylesheet" href="/css/signup.css" />
+</head>
+{% extends "base.html" %}
+{% block content %}
+<form method=post>
+  <div class="form-container">
+    <div class="form-box">
+      <p> Thanks for considering joining our site, ucsddate.com! I bet you are pretty nervous signing up for a site that looks like this, right? Your name won't be seen by other users unless you want it to be! Only the username will be shown to other users.</p>
+      <div class="form-center">
+        <input type=text name=name class="signupright" placeholder="Enter name here (3-20 characters)"></input>{{errorname}}<br>
+        <input type=text name=username class="signupright" placeholder="Enter username (3-20 characters)"></input>{{erroruname}}<br>
+        <input type=password name=password class="signupright" placeholder="Enter password (3 -20 characters)"></input>{{errorpassword}}<br>
+        <input type=password name=verify class="signupright" placeholder="Verify password"></input>{{errorverify}}<br>
+        <input type=text name=email class="signupright" placeholder="Enter email (optional)"></input>{{erroremail}}<br>
+        <input type=text name=age class="signupright" placeholder="Enter age"></input>{{errorage}}<br>
+        <input type=text name=location class="signupright" placeholder="Enter location"></input>{{errorlocation}}<br>
+      </div>
+      <div class= "form-bottom">
+        <div class= "form-bottom-box">
+          <label for="gender" class="form-bottom-left">Gender:</label>
+          <select name="gender" class="form-bottom-right">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Nonbinary</option>
+          </select>
+        </div>
+        <div class= "form-bottom-box">
+
+          <label for="lookingfor" class="form-bottom-left">Desires a:</label>
+          <select name="lookingfor" class="form-bottom-right">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Nonbinary</option>
+          </select>
+        </div>
+        <div class= "form-bottom-box">
+
+          <input type="submit"value="SIGN UP!"></input>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}

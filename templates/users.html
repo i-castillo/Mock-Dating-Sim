@@ -1,0 +1,87 @@
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <script type="text/javascript" src="/javascript/message.js"></script>
+  <link type="text/css" rel="stylesheet" href="/css/users.css" />
+
+</head>
+{% extends "base.html" %}
+
+{% block content %}
+  <div>List of Users </div>
+  <div class="users">
+
+{% for user in users %}
+
+  <div class=user><a href=/user/{{user.username}}>
+    <div>{{user.username}}</div>
+    {% if user.picture %}
+    <img src="/img/?img={{ user.key().id() }}">
+    {% else %}
+      {% if user.gender == 'M' %}
+        <img width=250px src="/images/blank-silhouette-medium-420x420.png">
+      {% elif user.gender == 'F' %}
+        <img width=250px src="/images/blank-silhouette-medium-420x420.png">
+      {% endif %}
+    {% endif %}
+
+  </a>
+  <div>College: {{user.college}}</div>
+  {% if user.description %}
+  <div>Description: {{user.description}}</div>
+  {% else %}
+  <div>Description: N/A</div>
+  {% endif %}
+
+  {% if user.percent %}
+  <div>Percent: {{user.percent}}</div>
+  {% else %}
+  <div>Percent: 0%</div>
+
+  {% endif %}
+  <a href="#" onclick="pop('{{user.username}}')"><button class="msgbtn"> message {{user.username }}</button></a>
+  </div>
+
+{% endfor %}
+</div>
+
+
+<div class="popup" id="myPopup">
+  <div class ="popuptext" id="poppy">
+  <div class = "messages"></div>
+  </div>
+  <input id="input"></input>
+  <button id="myForm">Send</button>
+
+</div>
+
+<script>
+function doAjax(name){
+  $.ajax({
+    url: '/getm',
+    type: 'POST',
+    data: {
+        receiver: name
+    },
+    success: function(e) {
+      $(".messages").empty();
+      $(".messages").append(e);
+      var out = document.getElementById("poppy");
+      out.scrollTop = out.scrollHeight - out.clientHeight;
+    }
+  });
+}
+
+function pop(name) {
+  $(".messages").empty();
+  doAjax(name);
+setInterval(function () {
+      doAjax(name);
+    }, 10000)
+
+
+    document.getElementById("myForm").value = name;
+    $(".popup").css('visibility', 'visible');
+
+}
+</script>
+{% endblock %}

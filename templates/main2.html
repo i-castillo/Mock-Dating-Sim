@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if not user %}
+<div class="main-container">
+<h1>welcome to ucsddate.com.</h1>
+<img src="./images/harry-meghan-15.jpg" alt="beautiful couple" width=200px>
+<div class="main-box">
+<p>On this free dating site, you can match with users who attend the same school as you do, and hopefully form a match!</p>
+<a href =/signup class="joinbtn">SIGNUP</a>
+</div>
+{% else %}
+<h1> Welcome back {{user.username}}! </h1>
+<div>
+<p><a href =/view>VIEW OTHER USERS</a><br></p>
+<p><a href =/edit>EDIT PROFILE</a><br></p>
+<p><a href ="/user/{{ user.username}}">VIEW PROFILE</a></p>
+</div>
+{% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+.user-container{
+  background: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  color: white;
+}
+
+.user-box{
+  align-self: center;
+  background-color: #182B49;
+  width: 280px;
+}
+
+
+.pictures{
+  display: flex;
+  flex-direction: row;
+}
+
+.main-picture{
+
+}
+
+.other-pics{
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 0;
+  text-decoration: none;
+  font-size: 16px;
+}

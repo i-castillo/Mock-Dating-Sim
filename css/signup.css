@@ -1,0 +1,58 @@
+p{
+  margin: 5px;
+}
+.signupright{
+    height: 30px;
+    padding: 10px;
+    margin: 5px;
+    width: 50%;
+  }
+
+.form-container{
+
+  background: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+
+}
+
+.form-box{
+  color: white;
+  align-self: center;
+  background-color: #182B49;
+  width: 500px;
+}
+
+@media screen and (max-width: 450px) {
+  .form-box {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .form-bottom{
+  }
+
+}
+
+.form-center{
+  text-align: center;
+}
+
+.form-bottom{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.form-bottom-box{
+  width: 100%;
+  text-align: center;
+  margin: 5px;
+}
+
+.form-bottom-left{
+}
+.form-bottom-right{
+  text-align: center;
+}
